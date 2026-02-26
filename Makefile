@@ -1,2 +1,2 @@
 dev:
-	uv run gunicorn app.main:app --reload
+	uv run gunicorn -w 1 app.main:app --reload
