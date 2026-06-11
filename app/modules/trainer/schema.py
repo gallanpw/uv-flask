@@ -15,3 +15,7 @@ class TrainerResponse(TrainerBase):
 
     class Config:
         from_attributes = True
+
+
+class TrainerPath(BaseModel):
+    id: int

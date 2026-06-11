@@ -16,3 +16,6 @@ class TrainerRepository:
         self.db.commit()
         self.db.refresh(db_trainer)
         return db_trainer
+
+    def get_by_id(self, id: int):
+        return self.db.query(TrainerEntity).filter(TrainerEntity.id == id).first()
