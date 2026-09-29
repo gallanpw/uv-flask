@@ -1,7 +1,8 @@
 # from .repository import TrainerRepository
-from flask import abort
-from .schema import TrainerCreate
+from app.core.exceptions import NotFoundError
+
 from .interface import ITrainerRepository
+from .schema import TrainerCreate
 
 
 class TrainerService:
@@ -18,5 +19,5 @@ class TrainerService:
     def get_trainer_by_id(self, id: int):
         trainer = self.repository.get_by_id(id)
         if not trainer:
-            abort(404, description="Trainer not found")
+            raise NotFoundError("Trainer not found")
         return trainer

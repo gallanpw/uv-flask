@@ -1,6 +1,7 @@
 # from this import d
 from flask_openapi3 import OpenAPI, Info
 from app.core.database import engine, Base
+from app.core.error_handlers import register_error_handlers
 from app.modules.trainer.router import trainer_bp
 # from app.modules.bootcamp.router import bootcamp_bp
 
@@ -13,6 +14,9 @@ info = Info(title="My BootCamp API", version="1.0.0")
 # Menggunakan OpenAPI sebagai pengganti Flask
 # Menggunakan doc_prefix="/docs" berarti semua UI ada di bawah folder /docs
 app = OpenAPI(__name__, info=info)
+
+# Terjemahkan error bisnis (NotFoundError, dst) menjadi respon HTTP
+register_error_handlers(app)
 
 # Register Blueprints
 app.register_api(trainer_bp)

@@ -6,6 +6,10 @@ dist/
 wheels/
 *.egg-info
 
+# Tool caches
+.pytest_cache/
+.ruff_cache/
+
 # Virtual environments
 .venv
 
@@ -15,6 +19,9 @@ wheels/
 
 # Database
 *.db
+*.db-shm
+*.db-wal
+*.db-journal
 
 # Environment variables
 .env

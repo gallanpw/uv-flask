@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 
 class TrainerBase(BaseModel):
@@ -13,8 +13,7 @@ class TrainerCreate(TrainerBase):
 class TrainerResponse(TrainerBase):
     id: int
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class TrainerPath(BaseModel):
